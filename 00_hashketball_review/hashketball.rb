@@ -122,6 +122,7 @@ end
 def num_points_scored(player_name)
 # TODO this method
 
+<<<<<<< HEAD
   # Given a name, I want to find the number of points scored
   # by this player in the game_hash
 
@@ -151,6 +152,32 @@ def num_points_scored(player_name)
 end
 
 def rebounds_for_player(player_name)
+=======
+=begin
+  players = game_hash.values.map do |team_info|
+    team_info[:players]
+end
+
+  new_players = players.flatten
+
+  found_player = new_players.find do |player_hash|
+    player_hash[:player_name] == player_name
+  end
+
+  found_player[:points]
+=end
+
+  new_players = get_all_players
+
+  #found_player = new_players.find do |player_hash|
+    #player_hash[:player_name] == player_name
+  #end
+  found_player = find_player(new_players, player_name)
+  found_player[:points]
+end
+
+def rebounds_for_players(player_name)
+>>>>>>> 215c84927c03dfeb5bcffb6bae96b99df1e0c79c
   players = get_all_players
   found_player = find_player(players, player_name)
   found_player[:rebounds]
@@ -169,4 +196,8 @@ def find_player(players, player_name)
 end
 
 puts num_points_scored("Alan Anderson")
+<<<<<<< HEAD
 puts rebounds_for_player("Alan Anderson")
+=======
+puts rebounds_for_players("Alan Anderson")
+>>>>>>> 215c84927c03dfeb5bcffb6bae96b99df1e0c79c

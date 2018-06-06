@@ -121,6 +121,34 @@ end
 
 def num_points_scored(player_name)
 # TODO this method
+
+=begin
+  players = game_hash.values.map do |team_info|
+    team_info[:players]
+end
+
+  new_players = players.flatten
+
+  found_player = new_players.find do |player_hash|
+    player_hash[:player_name] == player_name
+  end
+
+  found_player[:points]
+=end
+
+  new_players = get_all_players
+
+  #found_player = new_players.find do |player_hash|
+    #player_hash[:player_name] == player_name
+  #end
+  found_player = find_player(new_players, player_name)
+  found_player[:points]
+end
+
+def rebounds_for_players(player_name)
+  players = get_all_players
+  found_player = find_player(players, player_name)
+  found_player[:rebounds]
 end
 
 def get_all_players
@@ -136,3 +164,4 @@ def find_player(players, player_name)
 end
 
 puts num_points_scored("Alan Anderson")
+puts rebounds_for_players("Alan Anderson")
